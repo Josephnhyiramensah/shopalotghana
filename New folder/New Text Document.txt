@@ -1,0 +1,7 @@
+code changes at home page 
+<div>
+            <h3 className="text-3xl font-extrabold mb-2">
+              { Free Delivery on Orders Above GHS 500 }
+            </h3>
+            <p className="text-white/80">Shop more and save on delivery across Ghana</p>
+          </div>
