@@ -197,7 +197,7 @@ export default function Footer() {
           <span className="text-[#F4A261] font-semibold"> JNK Mensah</span>
           {" "}@{" "}
           <span className="text-[#FF4500] font-bold tracking-wide">
-            NexisOra.Tech Lab. 
+            NexusOra.Tech Lab. 
           </span>
         </p>
       </div>
