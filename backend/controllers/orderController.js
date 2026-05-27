@@ -252,4 +252,68 @@ export const deleteOrder = async function(req, res) {
 
 // suppress unused import warning
 const _p = process
+
+// @PUT /api/orders/:id/cancel [CUSTOMER]
+export const cancelOrder = async function(req, res) {
+  try {
+    const order = await Order.findById(req.params.id)
+      .populate("user", "name email")
+
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found"
+      })
+    }
+
+    // Only allow cancel if pending or processing
+    if (!["pending", "processing"].includes(order.status)) {
+      return res.status(400).json({
+        success: false,
+        message: "Order cannot be cancelled at this stage"
+      })
+    }
+
+    // Update status
+    order.status = "cancelled"
+    await order.save()
+
+    // ── Notify admin ──
+    try {
+      const customerName = order.guestInfo?.name
+        || order.user?.name
+        || "Customer"
+      await Notification.create({
+        type:    "new_order",
+        title:   "❌ Order Cancelled by Customer",
+        message: customerName + " cancelled order #" +
+                 order._id.toString().slice(-6).toUpperCase() +
+                 " worth GH₵" + (order.totalPrice || 0).toFixed(2),
+        link:    "/admin/orders",
+        data: {
+          orderId:      order._id,
+          customerName,
+          totalPrice:   order.totalPrice,
+        }
+      })
+    } catch (notifErr) {
+      console.log("Cancel notification error:", notifErr.message)
+    }
+
+    // ── Send cancellation email to customer ──
+    try {
+      const emailTo = order.guestInfo?.email || order.user?.email
+      if (emailTo) {
+        await sendEmail(orderCancelledEmail(order))
+        console.log("Cancellation email sent to:", emailTo)
+      }
+    } catch (emailErr) {
+      console.log("Cancel email failed:", emailErr.message)
+    }
+
+    res.json({ success: true, message: "Order cancelled successfully", order })
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message })
+  }
+}
 void _p

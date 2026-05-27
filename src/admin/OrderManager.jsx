@@ -114,11 +114,9 @@ export default function OrderManager() {
   }
 
   function canDelete(order) {
-    if (!isSuperAdmin) return false
-    if (order.status === "cancelled") return true
-    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-    return new Date(order.createdAt) < thirtyDaysAgo
-  }
+  if (!isSuperAdmin) return false
+  return true  // superadmin can delete any order anytime
+}
 
   return (
     <div>
