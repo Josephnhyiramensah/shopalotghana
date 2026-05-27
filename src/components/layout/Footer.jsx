@@ -5,7 +5,7 @@ import {
   FaInstagram, FaTiktok, FaYoutube
 } from "react-icons/fa"
 import { useSettings } from "../../hooks/useSettings"
-import logo from "../../assets/logo.png"
+
 const quickLinks = [
   { label: "Home", to: "/" },
   { label: "Shop", to: "/shop" },
@@ -42,7 +42,7 @@ export default function Footer() {
 
         {/* Brand */}
         <div>
-          <img src={logo} alt="Shopalotghana" className="h-8 w-auto" />
+          <img src="/logo.png" alt="Shopalotghana" className="h-8 w-auto" />
           
           <p className="text-gray-300 text-sm leading-relaxed mb-4">
             Quality Living, Locally Delivered. Your trusted e-commerce

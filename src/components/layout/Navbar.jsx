@@ -5,7 +5,7 @@ import { useCart } from "../../hooks/useCart"
 import { useWishlist } from "../../hooks/useWishlist"
 import { useSettings } from "../../hooks/useSettings"
 import { trackSearch } from "../../utils/analytics"
-import logo from "../../assets/logo.png"
+
 import {
   FiShoppingCart, FiHeart, FiUser, FiMenu, FiX,
   FiSearch, FiChevronDown, FiLogOut, FiPackage,
@@ -97,11 +97,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <img
-              src={logo}
-              alt="Shopalotghana"
-              className="h-14 w-auto object-contain"
-            />
+           <img src="/logo.png" alt="Shopalotghana" className="h-14 w-auto object-contain" />
           </Link>
 
           {/* Desktop search */}

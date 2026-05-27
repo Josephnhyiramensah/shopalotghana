@@ -7,7 +7,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth"
 import toast from "react-hot-toast"
-import logo from "../assets/logo.png"
+
 import {
   FiUser, FiMail, FiLock, FiPhone,
   FiEye, FiEyeOff, FiArrowRight, FiCheck
@@ -80,7 +80,7 @@ export default function Register() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/">
-            <img src={logo} alt="Shopalotghana" className="h-12 w-auto mx-auto" />
+            <img src="/logo.png" alt="Shopalotghana" className="h-12 w-auto mx-auto" />
           </Link>
           <p className="text-gray-500 mt-2">Create your free account</p>
         </div>

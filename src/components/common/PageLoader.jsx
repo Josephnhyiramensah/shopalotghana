@@ -172,7 +172,7 @@ export default function PageLoader() {
         <div className="logo-pulse w-24 h-24 rounded-full bg-white shadow-2xl
                         flex items-center justify-center">
           <img
-            src="/src/assets/logo.png"
+            src="/logo.png"
             alt="Shopalotghana"
             className="w-16 h-16 object-contain"
             onError={function(e) {
