@@ -697,7 +697,7 @@ export default function Home() {
               Limited Time
             </p>
             <h3 className="text-2xl md:text-3xl font-extrabold">
-              Free delivery on orders above GH₵500
+              Your privacy, our priority. Discover exclusive offers and confidential deals tailored just for you
             </h3>
           </div>
           <Link
