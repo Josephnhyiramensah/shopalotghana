@@ -70,7 +70,7 @@ export default function Navbar() {
   }
 
   const isAdmin = user && ADMIN_ROLES.includes(user.role)
-  const threshold = settings?.freeDeliveryThreshold || 500
+  const threshold = settings?.freeDeliveryThreshold || 0.00
 
   return (
     <>
@@ -79,7 +79,7 @@ export default function Navbar() {
         {/* Top announcement bar */}
         <div className="bg-[#1D3557] text-white text-xs text-center py-1.5 px-4">
           🚚 Free delivery on orders above GH₵{threshold} &nbsp;|&nbsp;
-          Pay with MoMo, Card or Cash on Delivery 🇬🇭
+          Pay with MoMo, Card or Cash on Delivery
         </div>
 
         {/* Main navbar */}
