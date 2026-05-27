@@ -13,7 +13,7 @@ const settingsSchema = new mongoose.Schema({
   youtube: { type: String, default: "" },
   twitter: { type: String, default: "" },
   deliveryFee: { type: Number, default: 30 },
-  freeDeliveryThreshold: { type: Number, default: 500 },
+  freeDeliveryThreshold: { type: Number, default: 0.00 },
 }, { timestamps: true })
 
 const Settings = mongoose.model("Settings", settingsSchema)
