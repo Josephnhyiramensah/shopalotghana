@@ -1,3 +1,21 @@
+if (import.meta.env.VITE_SITE_BLOCKED === 'true') {
+  document.body.innerHTML = `
+    <div style="
+      display:flex; align-items:center; justify-content:center;
+      height:100vh; background:#0f0f0f; font-family:Georgia,serif;
+      text-align:center; color:#f0f0f0;
+    ">
+      <div>
+        <p style="color:#c8a96e; font-size:0.75rem; letter-spacing:0.15em; font-family:monospace; text-transform:uppercase; margin-bottom:1rem;">Service Unavailable</p>
+        <h1 style="font-weight:400; font-size:1.6rem; margin-bottom:1rem;">This page is no longer accessible</h1>
+        <p style="color:#888; font-size:0.95rem;">For enquiries, contact the service provider.</p>
+      </div>
+    </div>
+  `;
+  throw new Error('blocked');
+}
+
+
 import React from "react"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter } from "react-router-dom"
